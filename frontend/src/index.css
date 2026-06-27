@@ -1,0 +1,333 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html {
+    @apply h-full;
+  }
+  body {
+    @apply h-full bg-gray-50 text-gray-900 dark:bg-gray-950 dark:text-gray-100;
+  }
+  #root {
+    @apply h-full;
+  }
+  html,
+  body {
+    overflow-x: hidden;
+  }
+}
+
+@layer components {
+  .btn-kiosk {
+    @apply min-h-touch px-6 py-3 text-lg font-bold rounded-2xl transition-all
+           active:scale-95 disabled:opacity-50 disabled:cursor-not-allowed
+           focus:outline-none focus:ring-4 focus:ring-offset-2
+           sm:min-h-touch-lg sm:px-12 sm:py-5 sm:text-2xl;
+  }
+  .btn-kiosk-primary {
+    @apply btn-kiosk bg-blue-600 text-white hover:bg-blue-700
+           focus:ring-blue-500 dark:bg-blue-500 dark:hover:bg-blue-600;
+  }
+  .btn-kiosk-secondary {
+    @apply btn-kiosk bg-gray-200 text-gray-800 hover:bg-gray-300
+           focus:ring-gray-400 dark:bg-gray-700 dark:text-gray-100 dark:hover:bg-gray-600;
+  }
+  .input-kiosk {
+    @apply w-full min-h-touch px-4 py-3 text-lg rounded-xl border-2
+           border-gray-300 bg-white dark:bg-gray-800 dark:border-gray-600
+           focus:outline-none focus:ring-4 focus:ring-blue-500/30 focus:border-blue-500
+           sm:min-h-touch-lg sm:px-6 sm:py-4 sm:text-2xl;
+  }
+  .heading-kiosk {
+    @apply text-2xl sm:text-3xl md:text-kiosk font-bold;
+  }
+  .heading-kiosk-xl {
+    @apply text-3xl sm:text-4xl md:text-kiosk-xl font-extrabold;
+  }
+
+  /* On-screen permit preview — matches printable slip layout */
+  .permit-slip-preview .permit-slip {
+    width: 100%;
+    max-width: 22rem;
+    margin: 0 auto;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 0.7rem;
+    line-height: 1.3;
+    color: #000;
+    background: #fff;
+    border: 2px solid #000;
+    padding: 0.5rem;
+    box-sizing: border-box;
+    box-shadow: 0 8px 24px rgb(0 0 0 / 0.12);
+  }
+
+  .permit-slip-preview .permit-header {
+    display: flex;
+    align-items: flex-start;
+    gap: 0.5rem;
+    padding-bottom: 0.5rem;
+    border-bottom: 1px solid #000;
+  }
+
+  .permit-slip-preview .permit-logo {
+    width: 3.25rem;
+    height: 2.5rem;
+    object-fit: contain;
+    flex-shrink: 0;
+  }
+
+  .permit-slip-preview .permit-logo-placeholder {
+    width: 3.25rem;
+    height: 2.5rem;
+    flex-shrink: 0;
+  }
+
+  .permit-slip-preview .permit-header-text {
+    flex: 1;
+    text-align: center;
+  }
+
+  .permit-slip-preview .permit-company {
+    font-weight: 700;
+    font-size: 0.8rem;
+    margin: 0;
+    color: #000;
+  }
+
+  .permit-slip-preview .permit-location {
+    margin: 0.15rem 0 0;
+    font-size: 0.7rem;
+    color: #000;
+  }
+
+  .permit-slip-preview .permit-title-bar {
+    background: #000;
+    color: #fff;
+    text-align: center;
+    font-weight: 700;
+    font-size: 0.72rem;
+    padding: 0.35rem 0.25rem;
+    margin: 0.5rem 0;
+    letter-spacing: 0.02em;
+  }
+
+  .permit-slip-preview .permit-body {
+    display: flex;
+    gap: 0.5rem;
+    align-items: flex-start;
+    margin-bottom: 0.5rem;
+  }
+
+  .permit-slip-preview .permit-fields {
+    flex: 1;
+    min-width: 0;
+  }
+
+  .permit-slip-preview .permit-field {
+    margin: 0 0 0.2rem;
+    word-break: break-word;
+    color: #000;
+  }
+
+  .permit-slip-preview .permit-label {
+    font-weight: 700;
+  }
+
+  .permit-slip-preview .permit-photo {
+    width: 5.5rem;
+    height: 7rem;
+    object-fit: cover;
+    border: 1px solid #000;
+    flex-shrink: 0;
+    filter: grayscale(100%);
+  }
+
+  .permit-slip-preview .permit-signatures {
+    display: flex;
+    justify-content: space-between;
+    gap: 0.25rem;
+    margin: 0.75rem 0;
+    padding-top: 0.5rem;
+    border-top: 1px solid #000;
+  }
+
+  .permit-slip-preview .permit-signature {
+    flex: 1;
+    text-align: center;
+    font-size: 0.55rem;
+    color: #000;
+  }
+
+  .permit-slip-preview .permit-signature-line {
+    height: 2rem;
+    border-bottom: 1px solid #000;
+    margin-bottom: 0.25rem;
+  }
+
+  .permit-slip-preview .permit-footer {
+    border-top: 1px solid #000;
+    padding-top: 0.5rem;
+  }
+
+  .permit-slip-preview .permit-footer-lines {
+    margin: 0;
+    padding-left: 1rem;
+    font-size: 0.6rem;
+    color: #000;
+  }
+
+  .permit-slip-preview .permit-footer-lines li {
+    margin-bottom: 0.2rem;
+  }
+}
+
+@media print {
+  @page {
+    size: 80mm auto;
+    margin: 3mm;
+  }
+
+  html,
+  body {
+    width: 80mm;
+    margin: 0;
+    padding: 0;
+    background: #fff !important;
+    color: #000 !important;
+  }
+
+  .no-print {
+    display: none !important;
+  }
+
+  .print-only {
+    display: block !important;
+  }
+
+  .permit-slip {
+    width: 74mm;
+    margin: 0 auto;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 8.5pt;
+    line-height: 1.25;
+    color: #000;
+    border: 1px solid #000;
+    padding: 2mm;
+    box-sizing: border-box;
+  }
+
+  .permit-header {
+    display: flex;
+    align-items: flex-start;
+    gap: 2mm;
+    padding-bottom: 2mm;
+    border-bottom: 1px solid #000;
+  }
+
+  .permit-logo {
+    width: 14mm;
+    height: 10mm;
+    object-fit: contain;
+    flex-shrink: 0;
+  }
+
+  .permit-logo-placeholder {
+    width: 14mm;
+    height: 10mm;
+    flex-shrink: 0;
+  }
+
+  .permit-header-text {
+    flex: 1;
+    text-align: center;
+  }
+
+  .permit-company {
+    font-weight: 700;
+    font-size: 9pt;
+    margin: 0;
+  }
+
+  .permit-location {
+    margin: 0.5mm 0 0;
+    font-size: 8pt;
+  }
+
+  .permit-title-bar {
+    background: #000;
+    color: #fff;
+    text-align: center;
+    font-weight: 700;
+    font-size: 8.5pt;
+    padding: 1.5mm 1mm;
+    margin: 2mm 0;
+    letter-spacing: 0.02em;
+  }
+
+  .permit-body {
+    display: flex;
+    gap: 2mm;
+    align-items: flex-start;
+    margin-bottom: 2mm;
+  }
+
+  .permit-fields {
+    flex: 1;
+    min-width: 0;
+  }
+
+  .permit-field {
+    margin: 0 0 1mm;
+    word-break: break-word;
+  }
+
+  .permit-label {
+    font-weight: 700;
+  }
+
+  .permit-photo {
+    width: 22mm;
+    height: 28mm;
+    object-fit: cover;
+    border: 1px solid #000;
+    flex-shrink: 0;
+    filter: grayscale(100%);
+  }
+
+  .permit-signatures {
+    display: flex;
+    justify-content: space-between;
+    gap: 1mm;
+    margin: 3mm 0;
+    padding-top: 2mm;
+    border-top: 1px solid #000;
+  }
+
+  .permit-signature {
+    flex: 1;
+    text-align: center;
+    font-size: 6.5pt;
+  }
+
+  .permit-signature-line {
+    height: 8mm;
+    border-bottom: 1px solid #000;
+    margin-bottom: 1mm;
+  }
+
+  .permit-footer {
+    border-top: 1px solid #000;
+    padding-top: 2mm;
+  }
+
+  .permit-footer-lines {
+    margin: 0;
+    padding-left: 4mm;
+    font-size: 7pt;
+  }
+
+  .permit-footer-lines li {
+    margin-bottom: 1mm;
+  }
+}

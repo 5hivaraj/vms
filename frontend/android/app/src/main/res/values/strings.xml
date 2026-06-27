@@ -1,0 +1,7 @@
+<?xml version='1.0' encoding='utf-8'?>
+<resources>
+    <string name="app_name">Visitor Kiosk</string>
+    <string name="title_activity_main">Visitor Kiosk</string>
+    <string name="package_name">com.vms.visitor.kiosk</string>
+    <string name="custom_url_scheme">com.vms.visitor.kiosk</string>
+</resources>
